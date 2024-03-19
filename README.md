@@ -45,9 +45,9 @@ At the core of the project, we create an Agent powered by OpenAI GPT 4.0 model a
 <img src="plots/Agent.png" alt="drawing" width="500"/>
 </p>
 
-Upon receiving the user's text query the Agent decides which actions it needs to take. For each communication iteration (receiving a new query/message) the Agent is faced with the following choice: use the Hotel Database (vector DB Qdrant) to retrieve query-related hotels, use the Traversal AI API to ask for additional information that is not present in the local Hotel Database, or answer the question without using any of the tools. 
+Upon receiving the user's text query, the Agent dynamically determines the appropriate course of action. With each interaction, the Agent faces a pivotal decision: whether to leverage the Hotel Database (Qdrant vector DB) for query-relevant hotels, utilize the Traversal AI API to procure additional information not present in the local database, or provide an answer independently without resorting to external tools.
 
-The communication between the user and the Agent is done in the chat format, where the Agent remembers all the history of the conversation and filter options (metadata) changes made by the user. Independent of where the information is coming from, the Agent will justify and personalize its answer with respect to the user's current request.
+Facilitating communication in a chat format, the Agent meticulously maintains a comprehensive history of the conversation, including any changes to filter options (metadata) made by the user. Regardless of the information source, the Agent adeptly justifies and tailors its responses to align seamlessly with the user's ongoing requests and preferences.
 
 After Promt Engineering, we store all the selected prompts in the `src/prompts.py` file.
 
