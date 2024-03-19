@@ -1,4 +1,5 @@
-# Hotel Search Assistant
+# Voyage.ai
+## Hotel Search Assistant
 
 Here we present the smart AI chatbot (Agent), that helps user to find the most suited hotels and relevant information about them, given text query and optional search fields.
 We employ OpenAI GPT 4.0 as the backbone for our Agent, create a vector Qdrant DB of hotels enriched by TripAdvisor's features, and utilize an external source of information - Traversaal AI.
