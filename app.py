@@ -16,7 +16,7 @@ collection_name = 'hotels'
 
 st.set_page_config(page_title="voyage.ai", page_icon="🚢")
 st.header('Hotels search chatbot')
-st.write('[![view source code and description](https://img.shields.io/badge/view_source_code-gray?logo=github)](https://github.com/Maksimov-Dmitry/traversaal-ai-hackathon)')
+st.write('[![view source code and description](https://img.shields.io/badge/view_source_code-gray?logo=github)](https://github.com/romitganjoo/Voyage.ai)')
 st.write('Developed by [Romit Ganjoo](https://www.linkedin.com/in/romitganjoo98/), romit.ganjoo@sjsu.edu and [Srinivas Rao Chavan](https://www.linkedin.com/in/srinivas1698/), srinivasrao.chavan@sjsu.edu')
 
 st.sidebar.header('Choose your preferences')
