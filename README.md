@@ -1,25 +1,28 @@
 # Voyage.ai
 ## Hotel Search Assistant
 
-Here we present the smart AI chatbot (Agent), that helps user to find the most suited hotels and relevant information about them, given text query and optional search fields.
-We employ OpenAI GPT 4.0 as the backbone for our Agent, create a vector Qdrant DB of hotels enriched by TripAdvisor's features, and utilize an external source of information - Traversaal AI.
-Finally, we deploy our model using Streamlit framework.
+Introducing Voyage.AI, our intelligent AI chatbot (Agent), designed to assist users in discovering the perfect hotels and accessing pertinent information, all through simple text queries and optional search parameters.
+
+At the core of our Agent lies OpenAI GPT 4.0, providing the robust backbone necessary for intelligent interactions. Additionally, we've constructed a vector Qdrant DB housing hotels enriched with TripAdvisor's comprehensive features, ensuring a rich repository of relevant data. To further enhance our offerings, we seamlessly integrate with Traversaal AI, tapping into external sources for additional insights.
+
+Our solution is seamlessly deployed using the Streamlit framework, promising a user-friendly and intuitive experience for all travelers seeking tailored hotel recommendations and information.
 
 ## Data Enrichment
 
-We have decided to collect the clean description of the hotels, their ratings, and amenities, rather than the raw reviews. This is due to the fact that the raw reviews are not always informative and can be biased.
+Our decision to focus on collecting clean hotel descriptions, along with their ratings and amenities, stems from the recognition that raw reviews may lack consistency and objectivity, often influenced by personal biases.
 
-In the original Hotels dataset, we sorted the positive (rating $\ge$ 4.0) and negative (rating $<$ 4.0) reviews by length, took the top 6 (by length) positive and top 6 negative reviews, and used OpenAI GPT 4.0 to summarize the content of the reviews, specifying strong and weak points mentioned in the reviews. 
+To curate our dataset, we meticulously sorted positive (rating ≥ 4.0) and negative (rating < 4.0) reviews from the original Hotels dataset. From each category, we selected the top 6 reviews based on length and employed the formidable OpenAI GPT 4.0 to distill their essence, highlighting both strengths and weaknesses mentioned therein.
 
-In addition to the dataset provided by the Gen AI Hackathon, we enriched our data using the TripAdvisor API [link](https://tripadvisor-content-api.readme.io/reference/overview). We gathered all present amenities (e.g. availability of different features in the hotel like pet-friendly atmosphere or WIFI availability) and rankings, distributed by different aspects of the hotel: location assessment, sleep quality, room assessment, service quality, and cleanliness. 
+Expanding our dataset beyond the confines of the Gen AI Hackathon, we leveraged the TripAdvisor API [link](https://tripadvisor-content-api.readme.io/reference/overview) to enrich our data further. This comprehensive integration enabled us to capture a wide array of amenities, ranging from pet-friendly policies to WIFI availability, alongside nuanced rankings across various facets of hotel experience, including location, sleep quality, room conditions, service standards, and cleanliness.
+
 
 <img src="plots/Vector_DB.png" alt="drawing" width="2000"/>
 
 ## DB Construction
 
-As a result, we have one document per unique hotel with a description consisting of metadata (i.e. City, Price range, average Rating) and text: ratings, amenities, and reviews summarization.
+As a result of our efforts, each unique hotel now boasts its own dedicated document, complete with a comprehensive description. This description encompasses essential metadata such as the city, price range, and average rating, alongside a detailed text section summarizing ratings, amenities, and reviews.
 
-To be able to semantically search for the query-related documents we transform the text part in the description into embeddings using the OpenAI Embedding model (text-embedding-3-large). We set up the Qdrant vector database [link](https://qdrant.tech/) with documents, which now consist of metadata and embedding of text description. This would allow us to quickly MixRetrieve hotels' documents, filtered by City, Price, and Rating requirements by the user, as well as ranked by semantic proximity to the user's query (text description of his wishes).
+To enable seamless semantic search functionality, we've transformed the textual portion of these descriptions into embeddings utilizing the powerful OpenAI Embedding model (text-embedding-3-large). Additionally, we've established a robust link to the Qdrant vector database [link](https://qdrant.tech/), housing these enriched documents. This setup empowers us to swiftly MixRetrieve hotel documents, filtered by the user's specified criteria of city, price, and rating, while also ranking them based on semantic proximity to the user's query.
 
 <p align="center">
   <img src="plots/Retriever.png" alt="drawing" width="700"/>
