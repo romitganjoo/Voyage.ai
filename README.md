@@ -74,4 +74,4 @@ python src/create_vector_db.py --collection-name=any_name --dataset-path=any_pat
 This will create the new collection with the name `any_name` and `any_path` is the path to the dataset.
 
 ## P.S.
-Developed by [Dmitry Maksimov](https://www.linkedin.com/in/maksimov-dmitry/), maksimov.dmitry.m@gmail.com and [Ilya Dudnik](https://www.linkedin.com/in/ilia-dudnik-5b8018271/), ilia.dudnik@fau.de
+Developed by [Romit Ganjoo](https://www.linkedin.com/in/romitganjoo98/), romit.ganjoo@sjsu.edu and [Srinivas Rao Chavan](https://www.linkedin.com/in/srinivas1698/), srinivasrao.chavan.sjsu.edu
